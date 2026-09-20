@@ -1,0 +1,52 @@
+title: Beary
+is-pinned-card: true
+tags: advisor, reformist
+card-image: img/portraits/Beary.jpg
+view-if: beary_advisor = 1
+new-page: true 
+
+= Beary
+
+Beary is a strange anthropormophic bear who claims he is a <span style="color: #c00000;">socialist</span> from the distant future. The party is very confused about this development but he insists he can do a lot for us.
+
+- @modern_propaganda
+- @hindsight
+- @money
+- @weapons
+- @root: Return to main
+
+@modern_propaganda
+title: Phonk edits and Furry art
+subtitle: Increase the popularity of <span style="color: #c00000;">socialism</span> through...allegedly modern...methods
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] 
+on-arrival: advisor_action_timer = 1; new_middle_spd += 8*(1-dissent); workers_spd += 8*(1-dissent); unemployed_spd += 8*(1-dissent); old_middle_spd += 6*(1-dissent); socialism += 5; rural_spd += 6*(1-dissent) if rural_conscious = 1; socialism -=5 if socialism >= 100; 
+
+Through somewhat unconventional methods we have spread futuristic propaganda among the masses. We may not fully understand it but we cannot deny it's effectiveness. [? if rural_conscious = 1: Even the rural peasantry is starting to come around to these strange methods! ?]
+
+@hindsight
+title: Warn these people!
+subtitle: Warn the party of the upcoming crisis!
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 1; left_dissent -= 15; labor_dissent -= 15; center_dissent -= 15; reformist_dissent -= 15; neorevisionist_dissent -= 15; nazi_urgency += 5;
+
+Beary has told us about the upcoming economic crash and how the <span style="color: #7A3C00;">Nazis</span> overun <span style="color: #001489;">Europe.</span>. Inter-Party tension cools as we're reminded of the grim future. [? if black_thursday_seen = 1: The crisis happened just as Beary predicted! Many in the party are shocked by this but we have far more pressing issues to worry about... ?]
+
+@money
+title: Print Money
+subtitle: Provide disscretionary funds for the government budget
+choose-if: advisor_action_timer <= 0 and spd_in_government = 1
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_in_government = 0 : The <span style="color: #c00000;">SPD</span> is not currently in government. ?] 
+on-arrival: advisor_action_timer = 1; budget += 2;
+
+Through a mysterious source we have gained more money to spend in government, the bourgeois parties and even some of our own party members are wary of the sudden influx of funds but the money will be very helpful.
+
+@weapons
+title: Arm the Reichsbanner
+subtitle: Give futuristic weapons to the Reichsbanner
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: rb_militancy += 0.15; spd_militancy += 0.10; radicalization += 3;
+
+We have secretly armed some of the Reichsbanner with weapons from the <span style="color: #0fc5ff;">21st century</span> and armed some others with more contemporary weapons to divert suspicion. The bourgeois, however, are still insenced by our militarization, leading to a radicalization of our members.
