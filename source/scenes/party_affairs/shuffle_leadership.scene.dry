@@ -648,4 +648,14 @@ tags: nonfactional_advisor
 
 Friedrich Stampfer is now an advisor.
 
+@add_beary
+title: Beary
+subtitle: A <span style="color: #c00000;">socialist</span> bear? From the <span style="color: #0fc5ff;">*future!?*</span>
+is-card: true
+card-image: img/portraits/Beary.jpg
+view-if: beary_advisor = 0 and n_advisors < 3
+on-arrival: beary_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional_advisor
 
+Beary is now an advisor?
