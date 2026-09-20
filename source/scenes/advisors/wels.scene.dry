@@ -22,7 +22,7 @@ subtitle: Removes all cards from the hand.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: {!
-Q.advisor_action_timer = 6;
+Q.advisor_action_timer = 1;
 if (Q.difficulty >= 0) {
     window.dendryUI.dendryEngine.state.currentHands['main'] = [];
 } else {
@@ -37,7 +37,7 @@ title: Party Discipline
 subtitle: Reduce dissent across the party.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
+on-arrival: advisor_action_timer = 1; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
 
 We have enforced party discipline to reduce dissent across all factions.
 
@@ -47,7 +47,7 @@ view-if: difficulty < 1
 subtitle: An emergency infusion of resources.
 choose-if: advisor_action_timer = 0 and not financing_banned
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if financing_banned : Wels' favorite donors are mysteriously unable to finance us now. ?]
-on-arrival: advisor_action_timer = 6; resources += dues
+on-arrival: advisor_action_timer = 1; resources += dues
 
 We have gained +[+ dues +] resources.
 
@@ -56,7 +56,7 @@ title: Snap Election
 subtitle: Call a snap election.
 unavailable-subtitle: [? if chancellor != "Wels" : Wels must be Chancellor or President. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer == 0 and (chancellor == "Wels")
-on-arrival: advisor_action_timer = 6; time_to_election = 3
+on-arrival: advisor_action_timer = 1; time_to_election = 3
 call: set_next_election_time
 
 We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
