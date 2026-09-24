@@ -38,7 +38,7 @@ title: Print Money
 subtitle: Provide disscretionary funds for the government budget
 choose-if: advisor_action_timer <= 0 and spd_in_government = 1
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_in_government = 0 : The <span style="color: #c00000;">SPD</span> is not currently in government. ?] 
-on-arrival: advisor_action_timer = 1; budget += 2;
+on-arrival: advisor_action_timer = 1; budget += 2; resources += 8
 
 Through a mysterious source we have gained more money to spend in government, the bourgeois parties and even some of our own party members are wary of the sudden influx of funds but the money will be very helpful.
 
